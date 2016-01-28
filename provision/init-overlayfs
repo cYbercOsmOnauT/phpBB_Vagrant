@@ -1,0 +1,69 @@
+#! /bin/sh
+
+### BEGIN INIT INFO
+# Provides:          overlayfs
+# Required-Start:    $remote_fs vboxadd-service
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Create bind and overlay mounts 
+### END INIT INFO
+
+#
+PATH=$PATH:/bin:/sbin:/usr/sbin
+PACKAGE=50plus-Treff
+
+set -e
+
+base_dir=/var/www/devsystem
+lower_dir=$base_dir/htdocs-php
+upper_dir=$base_dir/htdocs-writes
+target_dir=$base_dir/htdocs
+
+case "$1" in
+start)
+	if grep -q "$target_dir " /proc/mounts; then
+		echo already started
+		exit 1
+	fi
+
+	mount -toverlayfs \
+		-olowerdir=$lower_dir,upperdir=$upper_dir \
+		overlayfs $target_dir | logger
+
+	/vagrant/provision/create-cache-dirs.sh \
+		/var/www/devsystem/htdocs-writes
+
+    ;;
+stop)
+	if ! grep -q "$target_dir " /proc/mounts; then
+		echo not started started
+		exit 1
+	fi
+
+	umount $target_dir
+    ;;
+restart)
+	if ! grep -q "$target_dir " /proc/mounts; then
+		echo not started started
+		exit 1
+	fi
+
+	#mount -oremount $target_dir
+	umount $target_dir
+	mount -toverlayfs \
+                -olowerdir=$lower_dir,upperdir=$upper_dir \
+                overlayfs $target_dir
+
+	/vagrant/provision/create-cache-dirs.sh \
+		/var/www/devsystem/htdocs-writes
+    ;;
+status)
+	mount
+    ;;
+*)
+    echo "Usage: $0 {start|stop|restart|status}"
+    exit 1
+esac
+
+exit

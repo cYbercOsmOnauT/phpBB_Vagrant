@@ -1,0 +1,25 @@
+
+
+# IDE, Backup und andere . Files
+*~
+.svn
+.idea
+.vagrant
+*.iml
+tmp
+
+
+# Dateien die waehrend des Builds oder der Entwicklung entstehen
+
+node_modules
+bower_components
+public/sassdoc
+
+/log/*
+!/log/README.txt
+!/log/htdocs/.keep
+!/log/htdocs/config.php
+!/log/logs/.keep
+
+/src/devsystem/*
+!/src/devsystem/.keep
