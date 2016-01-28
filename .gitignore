@@ -20,6 +20,3 @@ public/sassdoc
 !/log/htdocs/.keep
 !/log/htdocs/config.php
 !/log/logs/.keep
-
-/src/devsystem/*
-!/src/devsystem/.keep
