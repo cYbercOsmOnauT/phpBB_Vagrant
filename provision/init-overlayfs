@@ -16,7 +16,7 @@ PACKAGE=50plus-Treff
 set -e
 
 base_dir=/var/www/devsystem
-lower_dir=$base_dir/htdocs-php
+lower_dir=$base_dir/htdocs-phpBB
 upper_dir=$base_dir/htdocs-writes
 target_dir=$base_dir/htdocs
 
@@ -27,8 +27,8 @@ start)
 		exit 1
 	fi
 
-	mount -toverlayfs \
-		-olowerdir=$lower_dir,upperdir=$upper_dir \
+	mount -t overlayfs \
+		-o lowerdir=$lower_dir,upperdir=$upper_dir \
 		overlayfs $target_dir | logger
 
 	/vagrant/provision/create-cache-dirs.sh \
@@ -51,8 +51,8 @@ restart)
 
 	#mount -oremount $target_dir
 	umount $target_dir
-	mount -toverlayfs \
-                -olowerdir=$lower_dir,upperdir=$upper_dir \
+	mount -t overlayfs \
+                -o lowerdir=$lower_dir,upperdir=$upper_dir \
                 overlayfs $target_dir
 
 	/vagrant/provision/create-cache-dirs.sh \

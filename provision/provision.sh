@@ -17,7 +17,7 @@ apt-get install -y vim
 apt-get install -y imagemagick
 
 # Add packages for overlayfs
-apt-get install -y overlayroot
+#apt-get install -y overlayroot
 
 
 # Configure web server directory structure

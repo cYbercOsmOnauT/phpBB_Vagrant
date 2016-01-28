@@ -43,7 +43,7 @@ Vagrant.configure(2) do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   config.vm.synced_folder "log/htdocs",   "/var/www/devsystem/htdocs-writes", owner: "www-data", group: "www-data"
-  config.vm.synced_folder "src/devsystem", "/var/www/devsystem/htdocs-php",    owner: "www-data", group: "www-data"
+  config.vm.synced_folder "src/devsystem/phpBB", "/var/www/devsystem/htdocs-phpBB",    owner: "www-data", group: "www-data"
   config.vm.synced_folder "log/logs",     "/var/www/devsystem/logs",          owner: "www-data", group: "www-data"
 
   # Provider-specific configuration so you can fine-tune various
