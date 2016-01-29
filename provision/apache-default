@@ -28,13 +28,11 @@
 		Allow from all
 	</Directory>
 
-	ErrorLog /var/www/devsystem/logs/error.log
-
 	# Possible values include: debug, info, notice, warn, error, crit,
 	# alert, emerg.
 	LogLevel warn rewrite:trace4
 	ErrorLog /var/www/devsystem/logs/rewrite.log
 
-	CustomLog ${APACHE_LOG_DIR}/access.log combined
+	CustomLog /var/www/devsystem/logs/access.log combined
 
 </VirtualHost>
