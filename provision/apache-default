@@ -1,6 +1,6 @@
 <VirtualHost *:80>
-	ServerName  www.local.devsystem.com
-
+	ServerName  local.web-coding.eu
+	ServerAlias local.web-coding.eu
 
 	ServerAdmin webmaster@localhost
 
