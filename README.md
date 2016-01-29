@@ -40,6 +40,7 @@ Hints:
 
  - All write accesses inside **Docroot** are redirected to **log/htdocs**.
  - All mails sent by *sendmail* are saved as textfiles inside **log/logs/**
+ - 
    
 
 Logfiles and Mails:
@@ -55,7 +56,7 @@ Logfiles and Mails:
 How to reset the development system:
 ===
 
-	- Delete everything inside src/devsystem/work
-	- Copy the contents of src/devsystem/vanilla into it
-	- Type vagrant destroy to destroy the VM.
-	- Type vagrant up to make Vagrant create a complete new VM.
+- Delete everything inside src/devsystem/work
+- Copy the contents of src/devsystem/vanilla into it
+- Type vagrant destroy to destroy the VM.
+- Type vagrant up to make Vagrant create a complete new VM.
