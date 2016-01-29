@@ -9,10 +9,11 @@ To boot the devsystem just simply open a terminal inside the project root and ty
 
 Devsystem:
 ===
+- Login to phpBB with Username **administrator** and Password **administrator**
 - You can reach the *MySQL Database* of the Vagrant VM with:
 
         Host:     localhost
-        Port:     3308
+        Port:     3308 (yes, it's not 3306 but 3308!)
 
         DB            Login           Passwort
         --------------------------------------
