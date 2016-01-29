@@ -21,7 +21,7 @@ Devsystem:
 
 - *FTP access* is not needed because all saves inside the *work directory* is automatically inside the *Docroot* of the VM.
 
-- *XDebug* is provided on **Port *9000*** with **Remote Connect back** and the **IDEKey *Vagrant***
+- *XDebug* is provided on **Port 9000** with **Remote Connect back** and the **IDEKey Vagrant**
 
 - Last but not least: You can reach the VM inside your browser with <http://local.web-coding.eu> or <http://www.local.devsystem.com> if you don't want to use my DNS server and know how to edit `/etc/hosts` and set `www.local.devsystem.com` to `192.168.99.99` - _https_ is also provided with a selfsigned certificate
 
@@ -55,7 +55,7 @@ Logfiles and Mails:
 How to reset the development system:
 ===
 
-	- Delete everything inside *src/devsystem/work*
-	- Copy the contents of *src/devsystem/vanilla* into it
-	- Type `vagrant destroy` to destroy the VM.
-	- Type `vagrant up` to make Vagrant create a complete new VM.
+	- Delete everything inside src/devsystem/work
+	- Copy the contents of src/devsystem/vanilla into it
+	- Type vagrant destroy to destroy the VM.
+	- Type vagrant up to make Vagrant create a complete new VM.
