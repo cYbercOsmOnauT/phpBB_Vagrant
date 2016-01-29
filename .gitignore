@@ -2,7 +2,6 @@
 
 # IDE, Backup und andere . Files
 *~
-.svn
 .idea
 .vagrant
 *.iml
