@@ -1,60 +1,52 @@
-Einrichten der Entwicklungsumgebung:
-====================================
+Prerequisites:
+===
 
-Die Entwicklungs-VM wird mit Vagrant verwaltet. Die aktuelle Version
-findest Du hier: https://www.vagrantup.com/downloads.html
-Die Entwicklungs-VM startest Du mit:
+The devsystem is managed by [Vagrant](https://www.vagrantup.com). The newest version can be downloaded [here](https://www.vagrantup.com/downloads.html).
 
-       vagrant up	
+Vagrant needs [Virtualbox](https://www.virtualbox.org). You can download it [here](https://www.virtualbox.org/wiki/Downloads).
 
-Die MySQL Datenbank in der Vagrant VM ist
-vom Host aus erreichbar unter:
-  
-       Host:     localhost
-       Port:     3308
-
-       DB         Login      Passwort
-       ------------------------------
-        	                root       mysql
-       devdb      devdb   devdb
-
-Features:
-=========
-
- - Dateien, die geschrieben werden erscheinen
-   in log/htdocs
-
- - Log Dateien des Apache und emails erscheinen in
-   log/logs
-
- - Das log Verzeichnis kann mit dem Skript
-   scripts/clean-log.sh aufgeraeumt werden.
+To boot the devsystem just simply open a terminal inside the project root and type `vagrant up`.
 
 
-Tipps:
-======
+Devsystem:
+===
+- You can reach the MySQL Database of the Vagrant VM with:
+
+        Host:     localhost
+        Port:     3308
+
+        DB            Login           Passwort
+        --------------------------------------
+                      root            mysql
+        devdb         devdb           devdb
+
+- FTP-Access is not needed because all saves inside the *work directory* is automatically inside the *Docroot* of the VM.
+
+- XDebug is provided on **Port *9000*** with **Remote Connect back** and the **IDEKey *Vagrant***
+
+
+Hints:
+===
 
  - Apache restart:
-   vagrant ssh -- sudo apache2ctl restart
+    - `vagrant ssh -- sudo apache2ctl restart`
+    - `vagrant ssh -- sudo service apache2 restart`
 
- - Aufräumen des log/ Verzeichnis:
-   a) scripts/clean.log-sh
-   b) git clean -fdx log
-      vagrant ssh -- sudo /etc/init.d/overlayfs restart
+ - Cleaning the **log/** directory:
+    - `scripts/clean.log-sh`
+    - `git clean -fdx log`
+	- `vagrant ssh -- sudo /etc/init.d/overlayfs restart`
+	- `vagrant ssh -- sudo service overlayfs restart`
 
- - Alle Schreibzugriffe die Du in /src/main/php erwarten
-   würdest werden nach log/htdocs umgelenkt.
+ - All write accesses inside **Docroot** are redirected to **log/htdocs**.
    
 
-Beobachtung von Fehlermeldungen
-===============================
+Logfiles and Mails:
+===
 
  - Apache logs:
-   - log/logs/access.log
-   - log/logs/errror.log
+    - log/logs/access.log
+	- log/logs/errror.log
 
  - Mails:
-   - log/logs/sendmail-*
-
- - letzter_fehler.txt:
-   - log/htdocs/includes/letzter_fehler.txt
+		- log/logs/sendmail-*
