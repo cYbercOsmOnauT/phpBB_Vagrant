@@ -16,7 +16,7 @@ PACKAGE=50plus-Treff
 set -e
 
 base_dir=/var/www/devsystem
-lower_dir=$base_dir/htdocs-phpBB
+lower_dir=$base_dir/htdocs-work
 upper_dir=$base_dir/htdocs-writes
 target_dir=$base_dir/htdocs
 
