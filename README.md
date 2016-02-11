@@ -20,7 +20,7 @@ Devsystem:
                       root            mysql
         devdb         devdb           devdb
 
-- *FTP access* is not needed because all saves inside the *work directory* is automatically inside the *Docroot* of the VM.
+- *FTP access* is not needed because all saves inside the *work directory* are automatically inside the *Docroot* of the VM.
 
 - *XDebug* is provided on **Port 9000** with **Remote Connect back** and the **IDEKey Vagrant**
 
