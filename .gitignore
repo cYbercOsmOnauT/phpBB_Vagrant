@@ -17,5 +17,4 @@ public/sassdoc
 /log/*
 !/log/README.txt
 !/log/htdocs/.keep
-!/log/htdocs/config.php
 !/log/logs/.keep
