@@ -61,6 +61,7 @@ apt-get install -y php5
 apt-get install -y php5-xdebug
 apt-get install -y php5-gd
 apt-get install -y php5-mysql
+apt-get install -y php5-curl
 updatedb
 
 # Enable PHP Remote Debugging
